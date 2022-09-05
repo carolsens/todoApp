@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import model.Task;
@@ -44,8 +45,8 @@ public class TaskController {
             statement.setBoolean(3, task.isSituation());
             statement.setString(4, task.getNote());
             statement.setDate(5, new Date(task.getEndsAt().getTime()));
-            statement.setDate(6, new Date(task.getCreatedAt().getTime()));
-            statement.setDate(7, new Date(task.getUpdatedAt().getTime()));
+            statement.setTimestamp(6, new Timestamp(task.getCreatedAt().getTime()));
+            statement.setTimestamp(7, new Timestamp(task.getUpdatedAt().getTime()));
             statement.setInt(8, task.getIdProject());          
             statement.execute();            
         } catch (Exception ex) {
@@ -56,7 +57,7 @@ public class TaskController {
         }
     }
     
-     public List<Task> list(int idProject) {
+     public List<Task> getAll(int idProject) {
         
         String sql = "SELECT * FROM tasks WHERE id_project = ?";
          
@@ -105,7 +106,6 @@ public class TaskController {
                 + "situation = ?, "
                 + "note = ?, "
                 + "ends_at = ?, "
-                + "created_at = ?, "
                 + "updated_at = ?, "
                 + "id_project = ? "
                 + "WHERE id = ?";
@@ -120,11 +120,10 @@ public class TaskController {
             statement.setString(2, task.getDescription());
             statement.setBoolean(3, task.isSituation());
             statement.setString(4, task.getNote());
-            statement.setDate(5, new Date(task.getEndsAt().getTime()));
-            statement.setDate(6, new Date(task.getCreatedAt().getTime()));
-            statement.setDate(7, new Date(task.getUpdatedAt().getTime()));
-            statement.setInt(8, task.getIdProject());     
-            statement.setInt(9, task.getId());   
+            statement.setTimestamp(5, new Timestamp(task.getEndsAt().getTime()));
+            statement.setTimestamp(6, new Timestamp(task.getUpdatedAt().getTime()));
+            statement.setInt(7, task.getIdProject());     
+            statement.setInt(8, task.getId());   
             statement.execute();            
         } catch (Exception ex) {
             throw new RuntimeException("Erro ao editar a "

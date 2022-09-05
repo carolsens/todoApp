@@ -29,11 +29,11 @@ public class Main {
         
 //--------------------------------
 //        Cadastro teste de projeto
-//        ProjectController projectController = new ProjectController();
-//        Project project = new Project();
-//        project.setName("Teste n1");
-//        project.setDescription("descrição do teste n1");
-//        projectController.creat(project);
+        ProjectController projectController = new ProjectController();
+        Project project = new Project();
+        project.setName("Teste n4");
+        project.setDescription("descrição do teste n4");
+        projectController.creat(project);
         
         
 //--------------------------------
@@ -49,7 +49,7 @@ public class Main {
 //        Consulta teste de projeto
 //        ProjectController projectController = new ProjectController();
 //        Project project = new Project();
-//        List<Project> projects = projectController.list();
+//        List<Project> projects = projectController.getAll();
 //        System.out.println("Total de projetos = " + projects.size());  
 
         
@@ -87,7 +87,7 @@ public class Main {
 //        Consulta teste de tarefa
 //        TaskController taskController = new TaskController();
 //        Task task = new Task();
-//        List<Task> tasks = taskController.list(1);
+//        List<Task> tasks = taskController.getAll(1);
 //        System.out.println("Total de tarefas = " + tasks.size());  
         
     }

@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import model.Project;
@@ -36,8 +37,8 @@ public class ProjectController {
             statement = connection.prepareStatement(sql);
             statement.setString(1, project.getName());
             statement.setString(2, project.getDescription());
-            statement.setDate(3, new Date(project.getCreatedAt().getTime()));
-            statement.setDate(4, new Date(project.getUpdatedAt().getTime()));         
+            statement.setTimestamp(3, new Timestamp(project.getCreatedAt().getTime()));
+            statement.setTimestamp(4, new Timestamp(project.getUpdatedAt().getTime()));         
             statement.execute();            
         } catch (Exception ex) {
             throw new RuntimeException("Erro ao salvar o "
@@ -47,7 +48,7 @@ public class ProjectController {
         }
     }
     
-    public List<Project> list() {
+    public List<Project> getAll() {
         
         String sql = "SELECT * FROM projects";
          
@@ -89,7 +90,6 @@ public class ProjectController {
         String sql = "UPDATE projects SET "
                 + "name = ?, "
                 + "description = ?, "
-                + "created_at = ?, "
                 + "updated_at = ? "
                 + "WHERE id = ?";
         
@@ -101,9 +101,8 @@ public class ProjectController {
             statement = connection.prepareStatement(sql);
             statement.setString(1, project.getName());
             statement.setString(2, project.getDescription());
-            statement.setDate(3, new Date(project.getCreatedAt().getTime()));
-            statement.setDate(4, new Date(project.getUpdatedAt().getTime()));     
-            statement.setInt(5, project.getId());   
+            statement.setTimestamp(3, new Timestamp(project.getUpdatedAt().getTime()));     
+            statement.setInt(4, project.getId());   
             statement.execute();            
         } catch (Exception ex) {
             throw new RuntimeException("Erro ao editar o "
