@@ -134,9 +134,9 @@ public class TaskController {
         
     }
     
-    public void delet(int taskId) throws SQLException {
+    public void delet(int taskId) {
         
-        String sql = "DELET FROM tasks WHERE id = ?";
+        String sql = "DELETE FROM tasks WHERE id = ?";
         
         Connection connection = null;
         PreparedStatement statement = null;

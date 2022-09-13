@@ -44,7 +44,9 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jTextAreaDescription = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(400, 600));
+        setUndecorated(true);
 
         jPanelToolBar.setBackground(new java.awt.Color(0, 51, 204));
         jPanelToolBar.setForeground(new java.awt.Color(255, 255, 255));

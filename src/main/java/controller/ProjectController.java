@@ -114,7 +114,7 @@ public class ProjectController {
     
     public void delet(int projectId) {
         
-        String sql = "DELET FROM projects WHERE id = ?";
+        String sql = "DELETE FROM projects WHERE id = ?";
         
         Connection connection = null;
         PreparedStatement statement = null;
